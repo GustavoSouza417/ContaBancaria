@@ -2,12 +2,12 @@
 	Name: contaDeBanco.c
 	Author: Gustavo Silva Souza
 	Date: 20/03/24 10:32
-	Description: programa que acessa a conta de um banco. ApÛs esse acesso, o usu·rio passa a ter acesso a seu saldo, depÛsitos, saques e trocas de senha
+	Description: programa que acessa a conta de um banco. Ap√≥s esse acesso, o usu√°rio passa a ter acesso a seu saldo, dep√≥sitos, saques e trocas de senha
 */
 
 
 
-//seÁ„o de bibliotecas
+//se√ß√£o de bibliotecas
 #include <stdio.h>
 #include <locale.h>
 #include <string.h>
@@ -16,7 +16,7 @@
 
 
 
-//seÁ„o de structs
+//se√ß√£o de structs
 typedef struct
 {
 	char  login[20];
@@ -28,7 +28,7 @@ User user;
 
 
 
-//seÁ„o de prototipaÁ„o
+//se√ß√£o de prototipa√ß√£o
 void receberLogin(User *);
 void verificarLogin(User *);
 void receberSenha(User *);
@@ -41,13 +41,13 @@ void trocarSenha(User *);
 
 
 
-//seÁ„o de vari·veis globais
+//se√ß√£o de vari√°veis globais
 char login[12]    = "a@gmail.com";
 char password[10] = "123456789";  
 
 
 
-//funÁ„o principal
+//fun√ß√£o principal
 main()
 {
 	setlocale(LC_ALL, "Portuguese");
@@ -57,7 +57,7 @@ main()
 
 
 
-//seÁ„o de funÁıes
+//se√ß√£o de fun√ß√µes
 void receberLogin(User *user)
 {
 	printf("Login: ");
@@ -72,7 +72,7 @@ void verificarLogin(User *user)
 	else
 	{
 		puts("\n-----------------------------");
-		puts("Login inv·lido");
+		puts("Login inv√°lido");
 		puts("-----------------------------\n\n");
 		receberLogin(user);
 	}
@@ -92,7 +92,7 @@ void verificarSenha(User *user)
 	else
 	{
 		puts("\n-----------------------------");
-		puts("Senha inv·lida");
+		puts("Senha inv√°lida");
 		puts("-----------------------------\n\n");
 		receberSenha(user);
 	}
@@ -114,7 +114,7 @@ void telaDeLogin(User *user)
 		puts("(4) Trocar senha");
 		puts("(5) Sair\n");
 		
-		printf("OpÁ„o: ");
+		printf("Op√ß√£o: ");
 		scanf("%d", &opcao);
 		
 		switch(opcao)
@@ -140,7 +140,7 @@ void telaDeLogin(User *user)
 				strcpy(user -> password, "");
 				user -> balance = 0.00;
 				
-				puts("\nVocÍ ser· desconectado");
+				puts("\nVoc√™ ser√° desconectado");
 				system("pause");
 				
 				system("cls");
@@ -148,7 +148,7 @@ void telaDeLogin(User *user)
 				break;
 				
 			default:
-				puts("\nOpÁ„o inv·lida");
+				puts("\nOp√ß√£o inv√°lida");
 				system("pause");
 				break;
 		}
@@ -171,10 +171,10 @@ void sacar(User *user)
 	
 	if(saque > user -> balance)
 	{
-		puts("VocÍ n„o tem saldo o suficiente para fazer esse saque!");
+		puts("Voc√™ n√£o tem saldo o suficiente para fazer esse saque!");
 	}
 	else if(saque <= 0)
-		puts("Valor inv·lido!");
+		puts("Valor inv√°lido!");
 	else
 	{
 		user -> balance -= saque;
@@ -193,11 +193,11 @@ void depositar(User *user)
 	scanf("%f", &deposito);
 	
 	if(deposito <= 0)
-		puts("Valor inv·lido!");
+		puts("Valor inv√°lido!");
 	else
 	{
 		user -> balance += deposito;
-		puts("DepÛsito efetuado com sucesso!");	
+		puts("Dep√≥sito efetuado com sucesso!");	
 	}
 	
 	system("pause");
@@ -236,14 +236,14 @@ void trocarSenha(User *user)
 		}
 		else
 		{
-			puts("\nAs senhas digitadas s„o diferentes! Escolha uma das opÁıes abaixo:\n");
+			puts("\nAs senhas digitadas s√£o diferentes! Escolha uma das op√ß√µes abaixo:\n");
 			
 			while(true)
 			{
 				puts("(1) Tentar novamente");
 				puts("(2) Desistir");
 				
-				printf("\nOpÁ„o: ");
+				printf("\nOp√ß√£o: ");
 				scanf("%d", &opcao);
 				
 				switch(opcao)
@@ -258,7 +258,7 @@ void trocarSenha(User *user)
 						break;
 						
 					default:
-						puts("Valor inv·lido!\n");
+						puts("Valor inv√°lido!\n");
 						system("pause");
 						break;
 				}	
